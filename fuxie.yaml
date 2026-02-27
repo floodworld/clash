@@ -22,6 +22,7 @@
 - 'DOMAIN-SUFFIX,u3v.cn,DIRECT' #咸鱼直播源
 - 'DOMAIN-SUFFIX,223789.xyz,DIRECT' #喜鹊EMBY直连
 - 'DOMAIN-SUFFIX,lilyemby.com,DIRECT' #LILY EMBY直连
+- 'DOMAIN-SUFFIX,entertang.work,DIRECT' #ETFLIX直连
 
 
 # ------------------------------------------------
@@ -67,3 +68,4 @@
 # - 'MATCH,PROXY' 
 # 或
 # - 'MATCH,DIRECT'
+
