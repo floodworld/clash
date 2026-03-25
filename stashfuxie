@@ -8,3 +8,4 @@ rules:
   - 'DOMAIN-SUFFIX,lilyemby.com,DIRECT' #LILY EMBY直连
   - 'DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT' #helipay ai
   - 'DOMAIN-SUFFIX,rendongholdings.com,DIRECT' #RD Holding
+  - 'DOMAIN-SUFFIX,obchk.com,DIRECT' #中银香港
