@@ -9,3 +9,7 @@ rules:
   - 'DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT' #helipay ai
   - 'DOMAIN-SUFFIX,rendongholdings.com,DIRECT' #RD Holding
   - 'DOMAIN-SUFFIX,bochk.com,DIRECT' #中银香港
+  - 'DOMAIN-SUFFIX,za.group,DIRECT' #ZA BANK
+  #- 'DOMAIN-SUFFIX,prudential.com,香港节点' #香港保诚
+
+
