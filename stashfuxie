@@ -6,6 +6,9 @@ rules:
   - 'DOMAIN-SUFFIX,xi5.top,DIRECT' #咸鱼直播源
   - 'DOMAIN-SUFFIX,223789.xyz,DIRECT' #喜鹊EMBY直连
   - 'DOMAIN-SUFFIX,lilyemby.com,DIRECT' #LILY EMBY直连
+  - 'DOMAIN-SUFFIX,bzy.lyezi.xyz,DIRECT' #叶子白名单 EMBY直连
+  - ‘DOMAIN-SUFFIX,entertang.work,DIRECT’ ##ETFLIX EMBY直连
+
   - 'DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT' #helipay ai
   - 'DOMAIN-SUFFIX,rendongholdings.com,DIRECT' #RD Holding
   - 'DOMAIN-SUFFIX,bochk.com,DIRECT' #中银香港
