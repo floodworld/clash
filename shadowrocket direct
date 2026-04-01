@@ -1,0 +1,23 @@
+#!name=我的直连
+#!desc=自定义直连规则模块，包含体育直播、EMBY私服及金融服务。
+#!category=Custom
+
+[Rule]
+# --- 多锋科技体育直播 ---
+DOMAIN-SUFFIX,dfkj.live,DIRECT
+DOMAIN-SUFFIX,duofengkeji.com,DIRECT
+
+# --- 咸鱼直播源 ---
+DOMAIN-SUFFIX,xi5.top,DIRECT
+
+# --- EMBY 直连服务 ---
+DOMAIN-SUFFIX,223789.xyz,DIRECT
+DOMAIN-SUFFIX,free.lilyemby.com,DIRECT
+DOMAIN-SUFFIX,bzy.lyezi.xyz,DIRECT
+DOMAIN-SUFFIX,entertang.work,DIRECT
+
+# --- 金融与 AI 服务 ---
+DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT
+DOMAIN-SUFFIX,rendongholdings.com,DIRECT
+DOMAIN-SUFFIX,bochk.com,DIRECT
+DOMAIN-SUFFIX,za.group,DIRECT
