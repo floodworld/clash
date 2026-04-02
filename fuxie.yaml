@@ -27,6 +27,7 @@
 #- 'DOMAIN-SUFFIX,entertang.work,DIRECT' #ETFLIX直连
 
 - 'DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT' #helipay ai
+- 'DOMAIN-SUFFIX,helipay.com,DIRECT' #helipay
 - 'DOMAIN-SUFFIX,rendongholdings.com,DIRECT' #RD Holding
 - 'DOMAIN-SUFFIX,bochk.com,DIRECT' #中银香港
 - 'DOMAIN-SUFFIX,za.group,DIRECT' #ZA BANK
