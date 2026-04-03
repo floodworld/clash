@@ -1,0 +1,6 @@
+name: Stash 去除国内游戏广告
+desc: 拦截掉国内大部分手游调用的“穿山甲”和“优量汇”广告插件
+rules:
+  - DOMAIN-KEYWORD,pangle,REJECT
+  - DOMAIN-KEYWORD,gdt,REJECT
+  - DOMAIN-KEYWORD,ad,REJECT
