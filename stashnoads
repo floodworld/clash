@@ -1,10 +1,5 @@
 name: Stash 广告拦截与报错修复
 desc: 拦截手游广告，并暴力修复网易云脚本报错
-script-providers:
-  netease.adblock.js:
-    url: "https://localhost/null.js"
-    interval: 864000
-
 rules:
   - DOMAIN-KEYWORD,unityads,REJECT
   - DOMAIN-KEYWORD,applovin,REJECT
@@ -14,5 +9,4 @@ rules:
   - DOMAIN-KEYWORD,pangle,REJECT
   - DOMAIN-KEYWORD,gdt,REJECT
   - DOMAIN-KEYWORD,ad,REJECT
-  # 如果上面的 script-providers 还不生效，再保留这行强力正则
-  - URL-REGEX,"netease.adblock.js",REJECT
+  - URL-REGEX,'https://gist\.githubusercontent\.com/.*/netease\.adblock\.js',REJECT
