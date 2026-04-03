@@ -9,4 +9,4 @@ rules:
   - DOMAIN-KEYWORD,pangle,REJECT
   - DOMAIN-KEYWORD,gdt,REJECT
   - DOMAIN-KEYWORD,ad,REJECT
-  - URL-REGEX,'^https://gist\.githubusercontent\.com/.*netease\.adblock\.js',REJECT
+  - URL-REGEX,'^https://gist\.githubusercontent\.com/.*netease.adblock.js',REJECT
