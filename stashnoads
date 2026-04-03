@@ -1,5 +1,5 @@
-name: Stash 广告拦截与报错修复
-desc: 拦截手游广告，并暴力修复网易云脚本报错
+name: Stash 广告拦截
+desc: 拦截手游广告
 rules:
   - DOMAIN-KEYWORD,unityads,REJECT
   - DOMAIN-KEYWORD,applovin,REJECT
