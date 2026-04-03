@@ -1,5 +1,5 @@
-name: Emby 服务器规则
-desc: 自动分流 Emby 流量
+name: Emby 及金融网站直连
+desc: 直连 Emby 流量及国内金融网站直连
 rules:
   - DOMAIN-SUFFIX,dfkj.live,DIRECT
   - DOMAIN-SUFFIX,duofengkeji.com,DIRECT
