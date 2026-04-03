@@ -1,5 +1,5 @@
-name: Stash 去除国内游戏广告
-desc: 拦截掉国内和国外大部分手游调用的“穿山甲”和“优量汇”等广告插件
+name: Stash 去除游戏广告
+desc: 拦截国内及海外手游广告插件，并屏蔽报错的网易云脚本
 rules:
   - DOMAIN-KEYWORD,unityads,REJECT
   - DOMAIN-KEYWORD,applovin,REJECT
@@ -9,3 +9,4 @@ rules:
   - DOMAIN-KEYWORD,pangle,REJECT
   - DOMAIN-KEYWORD,gdt,REJECT
   - DOMAIN-KEYWORD,ad,REJECT
+  - URL-REGEX,'^https://gist\.githubusercontent\.com/.*netease\.adblock\.js',REJECT
