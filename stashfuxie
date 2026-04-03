@@ -14,6 +14,6 @@ rules:
   - 'DOMAIN-SUFFIX,helipay.com,DIRECT' #helipay
   - 'DOMAIN-SUFFIX,bochk.com,DIRECT' #中银香港
   - 'DOMAIN-SUFFIX,za.group,DIRECT' #ZA BANK
-  #- 'DOMAIN-SUFFIX,prudential.com,香港节点' #香港保诚
+  - 'DOMAIN-SUFFIX,prudential.com,🇭🇰 香港节点' #香港保诚
 
 
