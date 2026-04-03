@@ -1,19 +1,19 @@
 name: Emby 服务器规则
 desc: 自动分流 Emby 流量
 rules:
-  - 'DOMAIN-SUFFIX,dfkj.live,DIRECT' #多锋科技体育直播
-  - 'DOMAIN-SUFFIX,duofengkeji.com,DIRECT' #多锋科技体育直播
-  - 'DOMAIN-SUFFIX,xi5.top,DIRECT' #咸鱼直播源
-  - 'DOMAIN-SUFFIX,223789.xyz,DIRECT' #喜鹊EMBY直连
-  - 'DOMAIN-SUFFIX,free.lilyemby.com,DIRECT' #LILY EMBY直连
-  - 'DOMAIN-SUFFIX,bzy.lyezi.xyz,DIRECT' #叶子白名单 EMBY直连
-  - ‘DOMAIN-SUFFIX,entertang.work,DIRECT’ #ETFLIX EMBY直连
+  - DOMAIN-SUFFIX,dfkj.live,DIRECT
+  - DOMAIN-SUFFIX,duofengkeji.com,DIRECT
+  - DOMAIN-SUFFIX,xi5.top,DIRECT
+  - DOMAIN-SUFFIX,223789.xyz,DIRECT
+  - DOMAIN-SUFFIX,free.lilyemby.com,DIRECT
+  - DOMAIN-SUFFIX,bzy.lyezi.xyz,DIRECT
+  - DOMAIN-SUFFIX,entertang.work,DIRECT
 
-  - 'DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT' #helipay ai
-  - 'DOMAIN-SUFFIX,rendongholdings.com,DIRECT' #RD Holding
-  - 'DOMAIN-SUFFIX,helipay.com,DIRECT' #helipay
-  - 'DOMAIN-SUFFIX,bochk.com,DIRECT' #中银香港
-  - 'DOMAIN-SUFFIX,za.group,DIRECT' #ZA BANK
-  - 'DOMAIN-SUFFIX,prudential.com,🇭🇰 香港节点' #香港保诚
+  - DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT
+  - DOMAIN-SUFFIX,rendongholdings.com,DIRECT
+  - DOMAIN-SUFFIX,helipay.com,DIRECT
+  - DOMAIN-SUFFIX,bochk.com,DIRECT
+  - DOMAIN-SUFFIX,za.group,DIRECT
+  - DOMAIN-SUFFIX,prudential.com,🇭🇰 香港节点
 
 
