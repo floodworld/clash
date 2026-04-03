@@ -7,7 +7,7 @@ rules:
   - 'DOMAIN-SUFFIX,223789.xyz,DIRECT' #喜鹊EMBY直连
   - 'DOMAIN-SUFFIX,free.lilyemby.com,DIRECT' #LILY EMBY直连
   - 'DOMAIN-SUFFIX,bzy.lyezi.xyz,DIRECT' #叶子白名单 EMBY直连
-  - ‘DOMAIN-SUFFIX,entertang.work,DIRECT’ ##ETFLIX EMBY直连
+  - ‘DOMAIN-SUFFIX,entertang.work,DIRECT’ #ETFLIX EMBY直连
 
   - 'DOMAIN-SUFFIX,ai.helipayhk.com,DIRECT' #helipay ai
   - 'DOMAIN-SUFFIX,rendongholdings.com,DIRECT' #RD Holding
