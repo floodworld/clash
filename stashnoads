@@ -8,4 +8,7 @@ rules:
   - DOMAIN-KEYWORD,doubleclick,REJECT
   - DOMAIN-KEYWORD,pangle,REJECT
   - DOMAIN-KEYWORD,gdt,REJECT
-  - URL-REGEX,'https://gist\.githubusercontent\.com/.*/netease\.adblock\.js',REJECT
+  - DOMAIN-KEYWORD,ad-display,REJECT
+  - DOMAIN-KEYWORD,ad-system,REJECT
+  - DOMAIN-KEYWORD,ads-delivery,REJECT
+  - DOMAIN-KEYWORD,adservice,REJECT
