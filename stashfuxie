@@ -4,6 +4,7 @@ rules:
   - DOMAIN-SUFFIX,dfkj.live,DIRECT
   - DOMAIN-SUFFIX,duofengkeji.com,DIRECT
   - DOMAIN-SUFFIX,xi5.top,DIRECT
+  - DOMAIN-SUFFIX,hktvzhy.com,DIRECT
   - DOMAIN-SUFFIX,223789.xyz,DIRECT
   - DOMAIN-SUFFIX,free.lilyemby.com,DIRECT
   - DOMAIN-SUFFIX,bzy.lyezi.xyz,DIRECT
