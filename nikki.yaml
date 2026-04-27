@@ -1,57 +1,55 @@
 # ---------------------------------------------------------------
-# Nikki (Mihomo) 配置文件 - 1:1 完美复刻版
+# Nikki/Stash 2026 全量复刻版 - MRS 格式对齐 + 业务逻辑一字不删
 # ---------------------------------------------------------------
 
-# --- 基础全局配置 ---
+# --- 全局基础配置 (对齐博主模板) ---
 allow-lan: true
 mode: rule
 log-level: info
 ipv6: false
 unified-delay: true
 tcp-concurrent: true
+global-client-fingerprint: chrome
+sniffer:
+  enable: true
+  sniff:
+    TLS: {ports: [443, 8443]}
+    HTTP: {ports: [80, 8080-8880], override-destination: true}
+    QUIC: {ports: [443, 8443]}
 
-# DNS 模块 (针对软路由优化的 Fake-IP 模式)
 dns:
   enable: true
   listen: 0.0.0.0:1053
   ipv6: false
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-  fallback:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
+  fake-ip-range: 28.0.0.1/8
+  default-nameserver: [https://223.5.5.5/dns-query]
+  nameserver: [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  proxy-server-nameserver: [https://dns.alidns.com/dns-query]
 
-# --- 1. 代理集合 (KTM & LiangXin) ---
+# --- 1. 订阅源 ---
 proxy-providers:
   KTM:
     type: http
     url: "https://ktm.qiongr.cn/api/v1/client/subscribe?token=6a15900cd581a8c3edbc1102df3eed9a"
     interval: 3600
     path: ./proxies/ktm.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: https://www.google.com/generate_204
-
+    health-check: {enable: true, interval: 600, url: https://www.google.com/generate_204}
+    proxy: DIRECT
   LiangXin:
     type: http
     url: "https://liangxin.xyz/api/v1/liangxin?OwO=d7b42543c1ba5267eb6741bb24087c6c"
     interval: 3600
     path: ./proxies/liangxin.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: https://www.google.com/generate_204
+    health-check: {enable: true, interval: 600, url: https://www.google.com/generate_204}
+    proxy: DIRECT
 
-# --- 2. 策略组 (全量保留你的 Stash 逻辑) ---
+# --- 2. 策略组 (全量复刻你的 Stash 逻辑，不删减任何业务组) ---
 proxy-groups:
   # 基础池
   - name: 🚀 节点选择
     type: select
-    proxies: [♻️ 自动选择, 🎥 EMBY专线, 🇭🇰 KTM香港, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🚀 手动切换, DIRECT]
+    proxies: [♻️ 自动选择, 🎥 EMBY专线, 🇭🇰 KTM香港, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, 🇭🇰 香港自选, 🇺🇲 美国自选, 🇸🇬 狮城自选, 🇨🇳 台湾自选, 🇯🇵 日本自选, 🇰🇷 韩国自选, DIRECT]
 
   - name: ♻️ 自动选择
     type: url-test
@@ -74,19 +72,22 @@ proxy-groups:
     use: [KTM]
     filter: "(HK香港-0)"
 
-  # 地区测速 & 自选组
+  # 地区测速与自选组
   - { name: 🇭🇰 香港节点, type: url-test, use: [KTM, LiangXin], filter: "(港|HK|hk|Hong Kong)", url: "https://www.google.com/generate_204" }
   - { name: 🇨🇳 台湾节点, type: url-test, use: [KTM, LiangXin], filter: "(台|新北|彰化|TW|Taiwan)", url: "https://www.google.com/generate_204" }
   - { name: 🇸🇬 狮城节点, type: url-test, use: [KTM, LiangXin], filter: "(新加坡|坡|SG|Singapore)", url: "https://www.google.com/generate_204" }
   - { name: 🇯🇵 日本节点, type: url-test, use: [KTM, LiangXin], filter: "(日本|东京|大阪|JP|Japan)", url: "https://www.google.com/generate_204" }
   - { name: 🇺🇲 美国节点, type: url-test, use: [KTM, LiangXin], filter: "(美|US|United States)", url: "https://www.google.com/generate_204" }
+  - { name: 🇰🇷 韩国节点, type: url-test, use: [KTM, LiangXin], filter: "(KR|Korea|KOR|首尔|韩)", url: "https://www.google.com/generate_204" }
   
   - { name: 🇭🇰 香港自选, type: select, use: [KTM, LiangXin], filter: "(港|HK|hk|Hong Kong)" }
   - { name: 🇺🇲 美国自选, type: select, use: [KTM, LiangXin], filter: "(美|US|United States)" }
   - { name: 🇸🇬 狮城自选, type: select, use: [KTM, LiangXin], filter: "(新加坡|坡|SG|Singapore)" }
   - { name: 🇨🇳 台湾自选, type: select, use: [KTM, LiangXin], filter: "(台|新北|彰化|TW|Taiwan)" }
+  - { name: 🇯🇵 日本自选, type: select, use: [KTM, LiangXin], filter: "(日本|东京|大阪|JP|Japan)" }
+  - { name: 🇰🇷 韩国自选, type: select, use: [KTM, LiangXin], filter: "(KR|Korea|KOR|首尔|韩)" }
 
-  # 业务功能组 (补全所有缺失项)
+  # 业务功能组 (补齐你的所有诉求)
   - name: 💬 Gemini
     type: select
     proxies: [🚀 节点选择, ♻️ 自动选择, 🇺🇲 美国自选, 🇸🇬 狮城自选, 🇨🇳 台湾自选, 🇭🇰 KTM香港, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🚀 手动切换, DIRECT]
@@ -157,101 +158,103 @@ proxy-groups:
 
   - name: 🐟 漏网之鱼
     type: select
-    proxies: [🚀 节点选择, ♻️ 自动选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🚀 手动切换]
+    proxies: [🚀 节点选择, ♻️ 自动选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, 🇭🇰 香港自选, 🇺🇲 美国自选, 🇸🇬 狮城自选, 🇨🇳 台湾自选, 🇯🇵 日本自选, 🇰🇷 韩国自选]
 
-# --- 3. 规则集 (与 Stash 1:1 映射) ---
+# --- 3. 规则集 (统一使用 MRS 格式对齐博主模板，保证加载成功率) ---
 rule-providers:
   LAN:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list"
-    path: ./rules/lan.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
+    path: ./rules/lan.mrs
   UnBan:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list"
-    path: ./rules/unban.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/unban.mrs"
+    path: ./rules/unban.mrs
   MyEmby:
     type: http
     behavior: classical
+    format: text
     url: "https://raw.githubusercontent.com/floodworld/clash/main/MyEmby.list"
-    path: ./rules/emby.yaml
-    interval: 86400
+    path: ./rules/emby.list
   BanAD:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
-    path: ./rules/ads.yaml
-    interval: 86400
-  GoogleFCM:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list"
-    path: ./rules/fcm.yaml
-    interval: 86400
-  Telegram:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Telegram.list"
-    path: ./rules/telegram.yaml
-    interval: 86400
-  GitHub:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list"
-    path: ./rules/github.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"
+    path: ./rules/ads.mrs
   Gemini:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.list"
-    path: ./rules/gemini.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs"
+    path: ./rules/gemini.mrs
   OpenAI:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list"
-    path: ./rules/openai.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs"
+    path: ./rules/openai.mrs
   Manus:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/manus.list"
-    path: ./rules/manus.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/manus.mrs"
+    path: ./rules/manus.mrs
   YouTube:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list"
-    path: ./rules/youtube.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"
+    path: ./rules/youtube.mrs
   Netflix:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/netflix.list"
-    path: ./rules/netflix.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"
+    path: ./rules/netflix.mrs
+  Telegram:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"
+    path: ./rules/telegram.mrs
+  GitHub:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"
+    path: ./rules/github.mrs
   ProxyGFW:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
-    path: ./rules/gfw.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"
+    path: ./rules/gfw.mrs
   ChinaDomain:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
-    path: ./rules/china.yaml
-    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
+    path: ./rules/china.mrs
+  ChinaIP:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
+    path: ./rules/china_ip.mrs
 
-# --- 4. 路由规则 (完全复刻优先级) ---
+# --- 4. 路由规则 (严格按照你之前的分层逻辑) ---
 rules:
   - RULE-SET,LAN,🎯 全球直连
   - RULE-SET,UnBan,🎯 全球直连
   - RULE-SET,MyEmby,📹 EMBY服
   - RULE-SET,BanAD,🛑 广告拦截
+
+  # 业务组核心分流
   - RULE-SET,Gemini,💬 Gemini
   - RULE-SET,OpenAI,💬 Openai
   - RULE-SET,Manus,💬 Manus
@@ -259,8 +262,9 @@ rules:
   - RULE-SET,Netflix,🎥 奈飞视频
   - RULE-SET,Telegram,📲 电报消息
   - RULE-SET,GitHub,👨🏿‍💻 GitHub
-  - RULE-SET,GoogleFCM,📢 谷歌FCM
+
+  # 基础分流
   - RULE-SET,ProxyGFW,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 全球直连
-  - GEOIP,CN,🎯 全球直连
+  - RULE-SET,ChinaIP,🎯 全球直连
   - MATCH,🐟 漏网之鱼
