@@ -6,7 +6,6 @@ rules:
   - DOMAIN-SUFFIX,xi5.top,DIRECT
   - DOMAIN-SUFFIX,hktvzby.com,DIRECT
   - DOMAIN-SUFFIX,223789.xyz,DIRECT
-  - DOMAIN-SUFFIX,free.lilyemby.com,DIRECT
   - DOMAIN-SUFFIX,bzy.lyezi.xyz,DIRECT
   - DOMAIN-SUFFIX,entertang.work,DIRECT
 
