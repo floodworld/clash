@@ -191,7 +191,7 @@ proxy-groups:
     use:
       - KTM
       - LiangXin
-  - filter: 新加坡高速|新加坡专线
+  - filter: 新加坡高速|新加坡专线|英国伦敦
     icon: https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/Emby1.png
     include-all: true
     name: EMBY 节点
