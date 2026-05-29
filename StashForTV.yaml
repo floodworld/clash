@@ -195,10 +195,11 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/Emby1.png
     include-all: true
     name: EMBY 节点
-    type: fallback
+    type: select
     use:
       - LiangXin
 rules:
+  - DOMAIN-SUFFIX,852851.xyz,US 美国 # IPTV研究所
   - RULE-SET,MyDirect,MyDirect
   - RULE-SET,EMBY,EMBY
   - SCRIPT,quic,REJECT
