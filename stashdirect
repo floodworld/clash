@@ -14,5 +14,5 @@ rules:
   - DOMAIN-SUFFIX,bochk.com,DIRECT
   - DOMAIN-SUFFIX,za.group,DIRECT
   - DOMAIN-SUFFIX,prudential.com,🇭🇰 香港节点
-
+  - DOMAIN-SUFFIX,z1cc.cc.cd,DIRECT
 
