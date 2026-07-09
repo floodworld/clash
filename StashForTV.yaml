@@ -1,6 +1,6 @@
 proxy-providers:
   KTM:
-    url: https://ktmgroup-host.com/api/v1/client/subscribe?token=6a15900cd581a8c3edbc1102df3eed9a
+    url: https://ktm001.pro/api/v1/client/subscribe?token=6a15900cd581a8c3edbc1102df3eed9a
     interval: 3600
     benchmark-timeout: 300
     benchmark-url: http://www.bing.com/generate_204
