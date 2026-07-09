@@ -1,15 +1,15 @@
 proxy-providers:
   KTM:
-    url: https://ktm001.cc/api/v1/client/subscribe?token=6a15900cd581a8c3edbc1102df3eed9a
+    url: https://ktmgroup-host.com/api/v1/client/subscribe?token=6a15900cd581a8c3edbc1102df3eed9a
     interval: 3600
     benchmark-timeout: 300
-    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-url: http://www.bing.com/generate_204
     # 服务提供商-2:
     #   url: http://your-another-service-provider
     #   interval: 600
   LiangXin:
     benchmark-timeout: 300
-    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-url: http://www.bing.com/generate_204
     interval: 3600
     url: https://liangxin.xyz/api/v1/liangxin?OwO=d7b42543c1ba5267eb6741bb24087c6c
 proxy-groups:
