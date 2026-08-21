@@ -12,3 +12,4 @@ DOMAIN-SUFFIX,helipay.com
 DOMAIN-SUFFIX,rendongholdings.com
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,za.group
+IP-CIDR,107.175.24.115/32,no-resolve
