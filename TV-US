@@ -16,6 +16,8 @@ DOMAIN-SUFFIX,veloxmedia.co.uk
 DOMAIN-SUFFIX,newtvsuper.com
 DOMAIN-SUFFIX,catvod.com
 IP-CIDR,103.102.135.231/24
+IP-CIDR,89.187.179.148/24
+
 DOMAIN-SUFFIX,163189.xyz
 DOMAIN-SUFFIX,z2u.com
 DOMAIN-SUFFIX,amazonaws.com
@@ -35,3 +37,8 @@ DOMAIN-SUFFIX,vip-tptv.xyz
 DOMAIN-SUFFIX,passwdword.xyz
 DOMAIN-SUFFIX,hudsonvalleyhost.com
 DOMAIN-SUFFIX,r2.hfyrw.com
+DOMAIN-SUFFIX,hardcoremedia.xyz
+DOMAIN-SUFFIX,cammonitorplus.net
+DOMAIN-SUFFIX,akamaized.net
+DOMAIN-SUFFIX,cloudfront.net
+
