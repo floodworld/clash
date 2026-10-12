@@ -37,4 +37,5 @@ DOMAIN-SUFFIX,hardcoremedia.xyz
 DOMAIN-SUFFIX,cammonitorplus.net
 
 DOMAIN-SUFFIX,cloudfront.net
+IP-CIDR,58.99.33.0/24
 
